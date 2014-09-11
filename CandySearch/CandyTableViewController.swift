@@ -34,7 +34,7 @@ class CandyTableViewController: UITableViewController, UISearchBarDelegate, UISe
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
+    // MARK: - Table View Data Source
 
     /*
     override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
@@ -67,6 +67,8 @@ class CandyTableViewController: UITableViewController, UISearchBarDelegate, UISe
         return cell
     }
   
+    // MARK: - Search Bar and Filtering
+    
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         // Filter the array using the filter method
         self.filteredCandies = self.candies.filter({ (candy: Candy) -> Bool in
@@ -93,6 +95,9 @@ class CandyTableViewController: UITableViewController, UISearchBarDelegate, UISe
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //self.performSegueWithIdentifier("candyDetail", sender: tableView)
     }
+    
+    
+    // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "candyDetail" {
@@ -143,16 +148,6 @@ class CandyTableViewController: UITableViewController, UISearchBarDelegate, UISe
     override func tableView(tableView: UITableView!, canMoveRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
         // Return NO if you do not want the item to be re-orderable.
         return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
     }
     */
 
