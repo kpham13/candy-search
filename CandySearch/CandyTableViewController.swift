@@ -67,7 +67,7 @@ class CandyTableViewController: UITableViewController, UISearchBarDelegate, UISe
         return cell
     }
   
-    // MARK: - Search Bar and Filtering
+    // MARK: - Search Bar
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         // Filter the array using the filter method
@@ -78,6 +78,8 @@ class CandyTableViewController: UITableViewController, UISearchBarDelegate, UISe
         })
         
     }
+    
+    // MARK: - Scope Bar to Filter Results
     
     func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
         let scopes = self.searchDisplayController!.searchBar.scopeButtonTitles as [String]
@@ -114,7 +116,6 @@ class CandyTableViewController: UITableViewController, UISearchBarDelegate, UISe
             }
         }
     }
-    
 
     /*
     // Override to support conditional editing of the table view.
