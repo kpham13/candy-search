@@ -47,7 +47,6 @@ class CandyTableViewController: UITableViewController, UISearchBarDelegate, UISe
         } else {
             return self.candies.count
         }
-        
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -79,7 +78,6 @@ class CandyTableViewController: UITableViewController, UISearchBarDelegate, UISe
             let stringMatch = candy.name.rangeOfString(searchText)
             return categoryMatch && (stringMatch != nil)
         })
-        
     }
     
     func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
@@ -100,7 +98,7 @@ class CandyTableViewController: UITableViewController, UISearchBarDelegate, UISe
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "candyDetail" {
             let candyDetailViewController = segue.destinationViewController as UIViewController
-            if (self.searchDisplayController?.active != nil) {
+            if (self.searchDisplayController?.active == true) {
             //if sender as UITableView == self.searchDisplayController!.searchResultsTableView {
                 let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
                 let destinationTitle = self.filteredCandies[indexPath.row].name
