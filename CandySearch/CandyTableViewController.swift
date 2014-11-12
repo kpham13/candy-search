@@ -31,10 +31,9 @@ class CandyTableViewController: UITableViewController, UISearchBarDelegate, UISe
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table View Data Source
+    // MARK: - TABLE VIEW DATA SOURCE
 
     /*
     override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
@@ -42,7 +41,7 @@ class CandyTableViewController: UITableViewController, UISearchBarDelegate, UISe
     }
     */
 
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.searchDisplayController!.searchResultsTableView {
             return self.filteredCandies.count
         } else {
@@ -61,7 +60,7 @@ class CandyTableViewController: UITableViewController, UISearchBarDelegate, UISe
             candy = self.candies[indexPath.row]
         }
         
-        cell.textLabel!.text = candy.name
+        cell.textLabel.text = candy.name
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
         return cell
@@ -71,7 +70,7 @@ class CandyTableViewController: UITableViewController, UISearchBarDelegate, UISe
         //self.performSegueWithIdentifier("candyDetail", sender: tableView)
     }
   
-    // MARK: - Search/Scope Bar
+    // MARK: - SEARCH/SCOPE BAR
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         // Filter the array using the filter method
@@ -96,12 +95,12 @@ class CandyTableViewController: UITableViewController, UISearchBarDelegate, UISe
         return true
     }
     
-    // MARK: - Navigation
+    // MARK: - NAVIGATION
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "candyDetail" {
             let candyDetailViewController = segue.destinationViewController as UIViewController
-            if self.searchDisplayController.active {
+            if (self.searchDisplayController?.active != nil) {
             //if sender as UITableView == self.searchDisplayController!.searchResultsTableView {
                 let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
                 let destinationTitle = self.filteredCandies[indexPath.row].name
@@ -113,40 +112,5 @@ class CandyTableViewController: UITableViewController, UISearchBarDelegate, UISe
             }
         }
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView!, moveRowAtIndexPath fromIndexPath: NSIndexPath!, toIndexPath: NSIndexPath!) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView!, canMoveRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
 }

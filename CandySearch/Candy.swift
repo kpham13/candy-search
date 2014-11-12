@@ -9,6 +9,8 @@
 import UIKit
 
 struct Candy {
+    
     let category : String
     let name : String
+    
 }
